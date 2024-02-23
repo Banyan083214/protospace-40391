@@ -1,0 +1,21 @@
+<main class="main">
+  <div class="inner">
+    <%# ログインしているときは以下を表示する %>
+    <% if user_signed_in? %>
+      <div class="greeting">
+        こんにちは、<%= link_to "#{current_user.name}さん", user_path(current_user), class: :greeting__link %>
+      </div>
+    <% end %>
+    <%# // ログインしているときは上記を表示する %>
+    <div class="card__wrapper">
+      <%# プロトタイプの一覧表示 %>
+      <% if @prototypes.any? %>
+        <div class="prototypes-list">
+          <%= render partial: 'prototype', collection: @prototypes %>
+        </div>
+      <% else %>
+        <p>No prototypes available.</p>
+      <% end %>
+    </div>
+  </div>
+</main>
