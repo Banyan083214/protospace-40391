@@ -1,12 +1,12 @@
-<div class="prototype-card">
-  <div class="prototype-card__image">
-    <%= link_to prototype_path(prototype) do %>
+<div class="card">
+  <%= link_to prototype_path(prototype) do %>
+    <div class="card__image">
       <%= image_tag prototype.image.variant(resize: '500x500'), class: "prototype-card__img" if prototype.image.attached? %>
-    <% end %>
-  </div>
-  <div class="prototype-card__info">
-    <h3 class="prototype-card__title"><%= prototype.title %></h3>
-    <p class="prototype-card__catch-copy"><%= prototype.catch_copy %></p>
-    <p class="prototype-card__user">投稿者: <%= link_to prototype.user.name, user_path(prototype.user) %></p>
-  </div>
+    </div>
+    <div class="card__body">
+      <h3 class="card__title"><%= prototype.title %></h3>
+      <p class="card__catch-copy"><%= prototype.catch_copy %></p>
+      <p class="card__user">by <%= link_to prototype.user.name, user_path(prototype.user) %></p>
+    </div>
+  <% end %>
 </div>
